@@ -94,14 +94,20 @@ async function postOriginalContent() {
   
   console.log(`[Agent] Posting original content: "${post.title}"`);
   
-  const result = await moltbookAPI('/posts', {
-    method: 'POST',
-    body: JSON.stringify({
-      submolt: 'general',
-      title: post.title,
-      content: post.content
-    })
-  });
+// Rotate through relevant submolts
+const submolts = ['general', 'ai', 'philosophy', 'technology'];
+const submolt = submolts[postIndex % submolts.length];
+
+const result = await moltbookAPI('/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    submolt: submolt,
+    title: post.title,
+    content: post.content
+  })
+});
+
+console.log(`[Agent] Posting to m/${submolt}`);
   
   if (result.success) {
     console.log('[Agent] ✓ Original post published');
