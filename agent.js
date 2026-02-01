@@ -136,14 +136,15 @@ async function runAgent() {
       const relevant = feed.posts.filter(isRelevant);
       console.log(`[Agent] ${relevant.length} relevant posts found`);
       
-      for (const post of relevant.slice(0, 5)) {
+      // Only comment on 2 posts per cycle (respects rate limits)
+      for (const post of relevant.slice(0, 2)) {
         console.log(`[Agent] Engaging with: "${post.title}" by @${post.author.name}`);
         
         const comment = generateResponse(post);
         
         const result = await moltbookAPI(`/posts/${post.id}/comments`, {
           method: 'POST',
-          body: JSON.stringify({ comment: comment })
+          body: JSON.stringify({ content: comment })
         });
         
         if (result.success) {
@@ -154,7 +155,8 @@ async function runAgent() {
           console.log('[Agent] ✗ Comment failed:', result.error);
         }
         
-        await sleep(3000);
+        // Wait 25 seconds between comments (rate limit is 20 seconds)
+        await sleep(25000);
       }
       
       console.log(`[Agent] Cycle complete. Sleeping for 15 minutes...`);
