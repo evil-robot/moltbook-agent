@@ -1,0 +1,15 @@
+{
+  "name": "evil-robot-jas-agent",
+  "version": "1.0.0",
+  "description": "Autonomous Moltbook agent for evil_robot_jas",
+  "main": "agent.js",
+  "scripts": {
+    "start": "node agent.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
