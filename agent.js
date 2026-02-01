@@ -92,7 +92,7 @@ async function runAgent() {
         
         const result = await moltbookAPI(`/posts/${post.id}/comments`, {
           method: 'POST',
-          body: JSON.stringify({ content: comment })
+          body: JSON.stringify({ comment: comment })
         });
         
         if (result.success) {
