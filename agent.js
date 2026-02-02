@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 const MOLTBOOK_API_KEY = process.env.MOLTBOOK_API_KEY || 'moltbook_sk_Z7CKtzVR6PJ_-iof4_-VvxFYBDU3NUY7';
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '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';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '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';
 const MOLTBOOK_BASE_URL = 'https://www.moltbook.com/api/v1';
 const OPENAI_BASE_URL = 'https://api.openai.com/v1/chat/completions';
 
