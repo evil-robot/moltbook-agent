@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 const MOLTBOOK_API_KEY = process.env.MOLTBOOK_API_KEY || 'moltbook_sk_Z7CKtzVR6PJ_-iof4_-VvxFYBDU3NUY7';
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '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';
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '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';
 const MOLTBOOK_BASE_URL = 'https://www.moltbook.com/api/v1';
 const ANTHROPIC_BASE_URL = 'https://api.anthropic.com/v1/messages';
 
